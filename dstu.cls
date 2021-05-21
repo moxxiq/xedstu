@@ -1,81 +1,81 @@
-% ******* Клас для написання документів за ДСТУ 3008-95 ********
-% ***** автори: Тавров Д. Ю., Борисенко П. Б., Дутчак І. О. ****
+% ******* РљР»Р°СЃ РґР»СЏ РЅР°РїРёСЃР°РЅРЅСЏ РґРѕРєСѓРјРµРЅС‚С–РІ Р·Р° Р”РЎРўРЈ 3008-95 ********
+% ***** Р°РІС‚РѕСЂРё: РўР°РІСЂРѕРІ Р”. Р®., Р‘РѕСЂРёСЃРµРЅРєРѕ Рџ. Р‘., Р”СѓС‚С‡Р°Рє Р†. Рћ. ****
 
-% 1. Ідентифікуємо клас
-\ProvidesClass{dstu}[2015/12/16 v1.0 Клас для написання документів за ДСТУ 3008-95]
-\NeedsTeXFormat{LaTeX2e} % потрібний формат
+% 1. Р†РґРµРЅС‚РёС„С–РєСѓС”РјРѕ РєР»Р°СЃ
+\ProvidesClass{dstu}[2015/12/16 v1.0 РљР»Р°СЃ РґР»СЏ РЅР°РїРёСЃР°РЅРЅСЏ РґРѕРєСѓРјРµРЅС‚С–РІ Р·Р° Р”РЎРўРЈ 3008-95]
+\NeedsTeXFormat{LaTeX2e} % РїРѕС‚СЂС–Р±РЅРёР№ С„РѕСЂРјР°С‚
 
-% 2. Завантажуємо "батьківський клас"
+% 2. Р—Р°РІР°РЅС‚Р°Р¶СѓС”РјРѕ "Р±Р°С‚СЊРєС–РІСЃСЊРєРёР№ РєР»Р°СЃ"
 \LoadClass[a4paper,14pt,ukrainian,oneside]{extreport}
 
 
-% 3. Завантажуємо пакети
-% мовні пакети
-\RequirePackage{cmap}% для кодування шрифтів у pdf
-\RequirePackage[T2A]{fontenc} % пакет для підтримки кирилічних шрифтів
-\RequirePackage[cp1251]{inputenc} % пакет для підтримкм Windows'івського кодування cp1251
-\RequirePackage[russian,ukrainian]{babel} % пакет для підтримки української та російської мов
-\RequirePackage{pscyr} % пакет із гарними кирилічними шрифтами
-\RequirePackage{mathtext} % потрібні символи в режимі математичних формул
-\RequirePackage{amssymb,amsfonts,amsmath,amsthm} % потрібні символи в режимі математичних формул
-\RequirePackage{textcomp} % потрібні символи в режимі математичних формул
-\RequirePackage{upgreek} % пакет для прямих грецьких літер
+% 3. Р—Р°РІР°РЅС‚Р°Р¶СѓС”РјРѕ РїР°РєРµС‚Рё
+% РјРѕРІРЅС– РїР°РєРµС‚Рё
+\RequirePackage{cmap}% РґР»СЏ РєРѕРґСѓРІР°РЅРЅСЏ С€СЂРёС„С‚С–РІ Сѓ pdf
+\RequirePackage[T2A]{fontenc} % РїР°РєРµС‚ РґР»СЏ РїС–РґС‚СЂРёРјРєРё РєРёСЂРёР»С–С‡РЅРёС… С€СЂРёС„С‚С–РІ
+\RequirePackage[cp1251]{inputenc} % РїР°РєРµС‚ РґР»СЏ РїС–РґС‚СЂРёРјРєРј Windows'С–РІСЃСЊРєРѕРіРѕ РєРѕРґСѓРІР°РЅРЅСЏ cp1251
+\RequirePackage[russian,ukrainian]{babel} % РїР°РєРµС‚ РґР»СЏ РїС–РґС‚СЂРёРјРєРё СѓРєСЂР°С—РЅСЃСЊРєРѕС— С‚Р° СЂРѕСЃС–Р№СЃСЊРєРѕС— РјРѕРІ
+\RequirePackage{pscyr} % РїР°РєРµС‚ С–Р· РіР°СЂРЅРёРјРё РєРёСЂРёР»С–С‡РЅРёРјРё С€СЂРёС„С‚Р°РјРё
+\RequirePackage{mathtext} % РїРѕС‚СЂС–Р±РЅС– СЃРёРјРІРѕР»Рё РІ СЂРµР¶РёРјС– РјР°С‚РµРјР°С‚РёС‡РЅРёС… С„РѕСЂРјСѓР»
+\RequirePackage{amssymb,amsfonts,amsmath,amsthm} % РїРѕС‚СЂС–Р±РЅС– СЃРёРјРІРѕР»Рё РІ СЂРµР¶РёРјС– РјР°С‚РµРјР°С‚РёС‡РЅРёС… С„РѕСЂРјСѓР»
+\RequirePackage{textcomp} % РїРѕС‚СЂС–Р±РЅС– СЃРёРјРІРѕР»Рё РІ СЂРµР¶РёРјС– РјР°С‚РµРјР°С‚РёС‡РЅРёС… С„РѕСЂРјСѓР»
+\RequirePackage{upgreek} % РїР°РєРµС‚ РґР»СЏ РїСЂСЏРјРёС… РіСЂРµС†СЊРєРёС… Р»С–С‚РµСЂ
 
-% графічні пакети
-\RequirePackage{graphicx} % основний пакет для вставки графіки
-\RequirePackage{subfig} % пакет для вставки підрисунків
-\RequirePackage{flafter} % пакет гарантує, що рисунок чи таблиця ніколи не з'являться раніше посилання на самих себе
-\RequirePackage{caption} % пакет для персоналізації заголовків рисунків та таблиць
-\RequirePackage{xtab} % пакет для довгих таблиць
-\RequirePackage{longtable} % пакет для довгих таблиць
-\RequirePackage{multirow} % пакет для об'єднання рядків таблиці
-\RequirePackage{array} % пакет для вирівнювання всередині таблиці
+% РіСЂР°С„С–С‡РЅС– РїР°РєРµС‚Рё
+\RequirePackage{graphicx} % РѕСЃРЅРѕРІРЅРёР№ РїР°РєРµС‚ РґР»СЏ РІСЃС‚Р°РІРєРё РіСЂР°С„С–РєРё
+\RequirePackage{subfig} % РїР°РєРµС‚ РґР»СЏ РІСЃС‚Р°РІРєРё РїС–РґСЂРёСЃСѓРЅРєС–РІ
+\RequirePackage{flafter} % РїР°РєРµС‚ РіР°СЂР°РЅС‚СѓС”, С‰Рѕ СЂРёСЃСѓРЅРѕРє С‡Рё С‚Р°Р±Р»РёС†СЏ РЅС–РєРѕР»Рё РЅРµ Р·'СЏРІР»СЏС‚СЊСЃСЏ СЂР°РЅС–С€Рµ РїРѕСЃРёР»Р°РЅРЅСЏ РЅР° СЃР°РјРёС… СЃРµР±Рµ
+\RequirePackage{caption} % РїР°РєРµС‚ РґР»СЏ РїРµСЂСЃРѕРЅР°Р»С–Р·Р°С†С–С— Р·Р°РіРѕР»РѕРІРєС–РІ СЂРёСЃСѓРЅРєС–РІ С‚Р° С‚Р°Р±Р»РёС†СЊ
+\RequirePackage{xtab} % РїР°РєРµС‚ РґР»СЏ РґРѕРІРіРёС… С‚Р°Р±Р»РёС†СЊ
+\RequirePackage{longtable} % РїР°РєРµС‚ РґР»СЏ РґРѕРІРіРёС… С‚Р°Р±Р»РёС†СЊ
+\RequirePackage{multirow} % РїР°РєРµС‚ РґР»СЏ РѕР±'С”РґРЅР°РЅРЅСЏ СЂСЏРґРєС–РІ С‚Р°Р±Р»РёС†С–
+\RequirePackage{array} % РїР°РєРµС‚ РґР»СЏ РІРёСЂС–РІРЅСЋРІР°РЅРЅСЏ РІСЃРµСЂРµРґРёРЅС– С‚Р°Р±Р»РёС†С–
 
-% пакети для форматування відступів та полів
-\RequirePackage[includehead, headsep=0pt, footskip=0pt, top=2cm, bottom=2cm, left=2cm, right=1cm]{geometry} % задаємо поля сторінки
-\RequirePackage{indentfirst} % відступ для першого рядка абзацу
-\RequirePackage{hanging} % відступ для всіх інших рядків абзацу
-\RequirePackage[shortlabels]{enumitem}	% пакет для форматування списків
-\RequirePackage{setspace}	% пакет для того, щоб можна було задати міжрядковий інтервал
-\RequirePackage{fancyhdr} % пакет потрібний для виставлення позиції номеру сторінки
-\RequirePackage{etoolbox} % пакет для прибирання висячого відступу в бібліографії та прописування умовних відстаней між заголовками
+% РїР°РєРµС‚Рё РґР»СЏ С„РѕСЂРјР°С‚СѓРІР°РЅРЅСЏ РІС–РґСЃС‚СѓРїС–РІ С‚Р° РїРѕР»С–РІ
+\RequirePackage[includehead, headsep=0pt, footskip=0pt, top=2cm, bottom=2cm, left=2cm, right=1cm]{geometry} % Р·Р°РґР°С”РјРѕ РїРѕР»СЏ СЃС‚РѕСЂС–РЅРєРё
+\RequirePackage{indentfirst} % РІС–РґСЃС‚СѓРї РґР»СЏ РїРµСЂС€РѕРіРѕ СЂСЏРґРєР° Р°Р±Р·Р°С†Сѓ
+\RequirePackage{hanging} % РІС–РґСЃС‚СѓРї РґР»СЏ РІСЃС–С… С–РЅС€РёС… СЂСЏРґРєС–РІ Р°Р±Р·Р°С†Сѓ
+\RequirePackage[shortlabels]{enumitem}	% РїР°РєРµС‚ РґР»СЏ С„РѕСЂРјР°С‚СѓРІР°РЅРЅСЏ СЃРїРёСЃРєС–РІ
+\RequirePackage{setspace}	% РїР°РєРµС‚ РґР»СЏ С‚РѕРіРѕ, С‰РѕР± РјРѕР¶РЅР° Р±СѓР»Рѕ Р·Р°РґР°С‚Рё РјС–Р¶СЂСЏРґРєРѕРІРёР№ С–РЅС‚РµСЂРІР°Р»
+\RequirePackage{fancyhdr} % РїР°РєРµС‚ РїРѕС‚СЂС–Р±РЅРёР№ РґР»СЏ РІРёСЃС‚Р°РІР»РµРЅРЅСЏ РїРѕР·РёС†С–С— РЅРѕРјРµСЂСѓ СЃС‚РѕСЂС–РЅРєРё
+\RequirePackage{etoolbox} % РїР°РєРµС‚ РґР»СЏ РїСЂРёР±РёСЂР°РЅРЅСЏ РІРёСЃСЏС‡РѕРіРѕ РІС–РґСЃС‚СѓРїСѓ РІ Р±С–Р±Р»С–РѕРіСЂР°С„С–С— С‚Р° РїСЂРѕРїРёСЃСѓРІР°РЅРЅСЏ СѓРјРѕРІРЅРёС… РІС–РґСЃС‚Р°РЅРµР№ РјС–Р¶ Р·Р°РіРѕР»РѕРІРєР°РјРё
 
-% стилі заголовків та змісту
-\RequirePackage[rm,small,raggedright]{titlesec} % пакет для ручного керування стилем заголовків
-\RequirePackage[titles,subfigure]{tocloft} % пакет для ручного керування стилем змісту
+% СЃС‚РёР»С– Р·Р°РіРѕР»РѕРІРєС–РІ С‚Р° Р·РјС–СЃС‚Сѓ
+\RequirePackage[rm,small,raggedright]{titlesec} % РїР°РєРµС‚ РґР»СЏ СЂСѓС‡РЅРѕРіРѕ РєРµСЂСѓРІР°РЅРЅСЏ СЃС‚РёР»РµРј Р·Р°РіРѕР»РѕРІРєС–РІ
+\RequirePackage[titles,subfigure]{tocloft} % РїР°РєРµС‚ РґР»СЏ СЂСѓС‡РЅРѕРіРѕ РєРµСЂСѓРІР°РЅРЅСЏ СЃС‚РёР»РµРј Р·РјС–СЃС‚Сѓ
 
-% пакет для коректного представлення інтернет-посилань у "Переліку посилань"
+% РїР°РєРµС‚ РґР»СЏ РєРѕСЂРµРєС‚РЅРѕРіРѕ РїСЂРµРґСЃС‚Р°РІР»РµРЅРЅСЏ С–РЅС‚РµСЂРЅРµС‚-РїРѕСЃРёР»Р°РЅСЊ Сѓ "РџРµСЂРµР»С–РєСѓ РїРѕСЃРёР»Р°РЅСЊ"
 \RequirePackage{url}
 
-% пакет для нормальних пробілів після ком у десяткових дробах
+% РїР°РєРµС‚ РґР»СЏ РЅРѕСЂРјР°Р»СЊРЅРёС… РїСЂРѕР±С–Р»С–РІ РїС–СЃР»СЏ РєРѕРј Сѓ РґРµСЃСЏС‚РєРѕРІРёС… РґСЂРѕР±Р°С…
 \RequirePackage{icomma}
 
-% пакет для відображення форматування вихідних кодів
+% РїР°РєРµС‚ РґР»СЏ РІС–РґРѕР±СЂР°Р¶РµРЅРЅСЏ С„РѕСЂРјР°С‚СѓРІР°РЅРЅСЏ РІРёС…С–РґРЅРёС… РєРѕРґС–РІ
 \RequirePackage{listings}
 
-% пакет для параметричних команд
+% РїР°РєРµС‚ РґР»СЏ РїР°СЂР°РјРµС‚СЂРёС‡РЅРёС… РєРѕРјР°РЅРґ
 \RequirePackage{xkeyval}
 
-% пакет для гіперпосилань у змісті
+% РїР°РєРµС‚ РґР»СЏ РіС–РїРµСЂРїРѕСЃРёР»Р°РЅСЊ Сѓ Р·РјС–СЃС‚С–
 \RequirePackage[hidelinks]{hyperref}
 
-% пакет для кодів програм
+% РїР°РєРµС‚ РґР»СЏ РєРѕРґС–РІ РїСЂРѕРіСЂР°Рј
 \RequirePackage{verbatim}
 
 
-% 4. Основна частина
+% 4. РћСЃРЅРѕРІРЅР° С‡Р°СЃС‚РёРЅР°
 \frenchspacing
-\doublespacing % інтервал "1,5" між рядками
+\doublespacing % С–РЅС‚РµСЂРІР°Р» "1,5" РјС–Р¶ СЂСЏРґРєР°РјРё
 
-\renewcommand{\rmdefault}{ftm} % задаємо шрифт за промовчанням --- "Times New Roman" із пакету pscyr
+\renewcommand{\rmdefault}{ftm} % Р·Р°РґР°С”РјРѕ С€СЂРёС„С‚ Р·Р° РїСЂРѕРјРѕРІС‡Р°РЅРЅСЏРј --- "Times New Roman" С–Р· РїР°РєРµС‚Сѓ pscyr
 
-\newcommand{\setfontsize}[1]{\fontsize{#1pt}{#1pt}\selectfont} % команда для задавання розміру шрифта
-\newcommand{\invcommas}[1]{\guillemotleft #1\guillemotright} % команда для французьких кутових лапок
+\newcommand{\setfontsize}[1]{\fontsize{#1pt}{#1pt}\selectfont} % РєРѕРјР°РЅРґР° РґР»СЏ Р·Р°РґР°РІР°РЅРЅСЏ СЂРѕР·РјС–СЂСѓ С€СЂРёС„С‚Р°
+\newcommand{\invcommas}[1]{\guillemotleft #1\guillemotright} % РєРѕРјР°РЅРґР° РґР»СЏ С„СЂР°РЅС†СѓР·СЊРєРёС… РєСѓС‚РѕРІРёС… Р»Р°РїРѕРє
 
-% текст гіперпосилань буде того ж шрифту, що й основний текст
+% С‚РµРєСЃС‚ РіС–РїРµСЂРїРѕСЃРёР»Р°РЅСЊ Р±СѓРґРµ С‚РѕРіРѕ Р¶ С€СЂРёС„С‚Сѓ, С‰Рѕ Р№ РѕСЃРЅРѕРІРЅРёР№ С‚РµРєСЃС‚
 \urlstyle{same}
 
-% стиль сторінки для позиції номеру сторінки
+% СЃС‚РёР»СЊ СЃС‚РѕСЂС–РЅРєРё РґР»СЏ РїРѕР·РёС†С–С— РЅРѕРјРµСЂСѓ СЃС‚РѕСЂС–РЅРєРё
 \fancypagestyle{plain}{
     \fancyhf{}
     \rhead{\thepage}
@@ -83,29 +83,29 @@
 		\renewcommand{\footrulewidth}{0pt}
 }
 
-% команди для заборони розриву формул у небажаному місці
+% РєРѕРјР°РЅРґРё РґР»СЏ Р·Р°Р±РѕСЂРѕРЅРё СЂРѕР·СЂРёРІСѓ С„РѕСЂРјСѓР» Сѓ РЅРµР±Р°Р¶Р°РЅРѕРјСѓ РјС–СЃС†С–
 \binoppenalty=10000
 \relpenalty=10000
 
-% команди для заборони використання перенесень
+% РєРѕРјР°РЅРґРё РґР»СЏ Р·Р°Р±РѕСЂРѕРЅРё РІРёРєРѕСЂРёСЃС‚Р°РЅРЅСЏ РїРµСЂРµРЅРµСЃРµРЅСЊ
 \tolerance=1
 \emergencystretch=\maxdimen
 \hyphenpenalty=10000
 \hbadness=10000
 
-% команда для створення ненумерованого розділу, який тим не менше показується в змісті
+% РєРѕРјР°РЅРґР° РґР»СЏ СЃС‚РІРѕСЂРµРЅРЅСЏ РЅРµРЅСѓРјРµСЂРѕРІР°РЅРѕРіРѕ СЂРѕР·РґС–Р»Сѓ, СЏРєРёР№ С‚РёРј РЅРµ РјРµРЅС€Рµ РїРѕРєР°Р·СѓС”С‚СЊСЃСЏ РІ Р·РјС–СЃС‚С–
 \newcommand{\uchapter}[1]{\chapter*{#1}\addcontentsline{toc}{chapter}{#1}} 
 
-% для створення вступу використаємо команду \uchapter
-\newcommand{\intro}{\uchapter{Вступ}}
+% РґР»СЏ СЃС‚РІРѕСЂРµРЅРЅСЏ РІСЃС‚СѓРїСѓ РІРёРєРѕСЂРёСЃС‚Р°С”РјРѕ РєРѕРјР°РЅРґСѓ \uchapter
+\newcommand{\intro}{\uchapter{Р’СЃС‚СѓРї}}
 
-% для створення висновків використаємо команду \uchapter
-\newcommand{\conclusions}{\uchapter{Висновки}}
+% РґР»СЏ СЃС‚РІРѕСЂРµРЅРЅСЏ РІРёСЃРЅРѕРІРєС–РІ РІРёРєРѕСЂРёСЃС‚Р°С”РјРѕ РєРѕРјР°РЅРґСѓ \uchapter
+\newcommand{\conclusions}{\uchapter{Р’РёСЃРЅРѕРІРєРё}}
 
-% для створення переліку умовних позначень використаємо команду \shortings
-\newcommand{\shortings}{\uchapter{Перелік умовних позначень, скорочень і термінів}}
+% РґР»СЏ СЃС‚РІРѕСЂРµРЅРЅСЏ РїРµСЂРµР»С–РєСѓ СѓРјРѕРІРЅРёС… РїРѕР·РЅР°С‡РµРЅСЊ РІРёРєРѕСЂРёСЃС‚Р°С”РјРѕ РєРѕРјР°РЅРґСѓ \shortings
+\newcommand{\shortings}{\uchapter{РџРµСЂРµР»С–Рє СѓРјРѕРІРЅРёС… РїРѕР·РЅР°С‡РµРЅСЊ, СЃРєРѕСЂРѕС‡РµРЅСЊ С– С‚РµСЂРјС–РЅС–РІ}}
 
-% хитра команда для створення додатків
+% С…РёС‚СЂР° РєРѕРјР°РЅРґР° РґР»СЏ СЃС‚РІРѕСЂРµРЅРЅСЏ РґРѕРґР°С‚РєС–РІ
 \newcounter{appendnum}
 \newcommand{\append}[1]{
 \setcounter{chapter}{0}
@@ -114,8 +114,8 @@
 \setcounter{section}{0}
 \setcounter{subsection}{0}
 \titleformat{\chapter}{\centering\normalsize}{\hspace{1cm}\thechapter}{0.5em}{}
-\chapter*{Додаток \Asbuk{appendnum}\\#1}
-\addcontentsline{toc}{chapter}{Додаток \Asbuk{appendnum}\ #1}
+\chapter*{Р”РѕРґР°С‚РѕРє \Asbuk{appendnum}\\#1}
+\addcontentsline{toc}{chapter}{Р”РѕРґР°С‚РѕРє \Asbuk{appendnum}\ #1}
 \addvspace{-28pt}
 \preto\section{%
 	\ifnum\value{section}=0\addvspace{0pt}\fi%
@@ -125,61 +125,61 @@
 \renewcommand{\thesection}{\Asbuk{appendnum}.\arabic{section}}
 \renewcommand{\thesubsection}{\Asbuk{appendnum}.\arabic{section}.\arabic{subsection}}
 }
-% прибираємо недопустимі букви з позначення додатків
+% РїСЂРёР±РёСЂР°С”РјРѕ РЅРµРґРѕРїСѓСЃС‚РёРјС– Р±СѓРєРІРё Р· РїРѕР·РЅР°С‡РµРЅРЅСЏ РґРѕРґР°С‚РєС–РІ
 \pretocmd\append{
 	\stepcounter{appendnum}
-	\ifnum\Asbuk{appendnum}=Ґ \stepcounter{appendnum}\fi
-	\ifnum\Asbuk{appendnum}=Є \stepcounter{appendnum}\fi
-	\ifnum\Asbuk{appendnum}=З \stepcounter{appendnum}\fi
-	\ifnum\Asbuk{appendnum}=І \stepcounter{appendnum}\fi
-	\ifnum\Asbuk{appendnum}=Ї \stepcounter{appendnum}\fi
-	\ifnum\Asbuk{appendnum}=Й \stepcounter{appendnum}\fi
-	\ifnum\Asbuk{appendnum}=О \stepcounter{appendnum}\fi
-	\ifnum\Asbuk{appendnum}=Ч \stepcounter{appendnum}\fi
-	\ifnum\Asbuk{appendnum}=Ь \stepcounter{appendnum}\fi
+	\ifnum\Asbuk{appendnum}=Тђ \stepcounter{appendnum}\fi
+	\ifnum\Asbuk{appendnum}=Р„ \stepcounter{appendnum}\fi
+	\ifnum\Asbuk{appendnum}=Р— \stepcounter{appendnum}\fi
+	\ifnum\Asbuk{appendnum}=Р† \stepcounter{appendnum}\fi
+	\ifnum\Asbuk{appendnum}=Р‡ \stepcounter{appendnum}\fi
+	\ifnum\Asbuk{appendnum}=Р™ \stepcounter{appendnum}\fi
+	\ifnum\Asbuk{appendnum}=Рћ \stepcounter{appendnum}\fi
+	\ifnum\Asbuk{appendnum}=Р§ \stepcounter{appendnum}\fi
+	\ifnum\Asbuk{appendnum}=Р¬ \stepcounter{appendnum}\fi
 }{}{}
 
-% будемо змінювати стилі заголовків
-% спочатку --- для розділу
-\titleformat{\chapter} % указуємо, що модифікуємо саме розділ
-			{\centering\normalsize\MakeUppercase} % указуємо формат назви ("усі великі")
-			{\hspace{1cm}\thechapter} % указуємо формат власне номера: це буде просто число, без крапки
-			{0.5em} % відстань між номером і назвою
-			{} % текст, що передує назві
+% Р±СѓРґРµРјРѕ Р·РјС–РЅСЋРІР°С‚Рё СЃС‚РёР»С– Р·Р°РіРѕР»РѕРІРєС–РІ
+% СЃРїРѕС‡Р°С‚РєСѓ --- РґР»СЏ СЂРѕР·РґС–Р»Сѓ
+\titleformat{\chapter} % СѓРєР°Р·СѓС”РјРѕ, С‰Рѕ РјРѕРґРёС„С–РєСѓС”РјРѕ СЃР°РјРµ СЂРѕР·РґС–Р»
+			{\centering\normalsize\MakeUppercase} % СѓРєР°Р·СѓС”РјРѕ С„РѕСЂРјР°С‚ РЅР°Р·РІРё ("СѓСЃС– РІРµР»РёРєС–")
+			{\hspace{1cm}\thechapter} % СѓРєР°Р·СѓС”РјРѕ С„РѕСЂРјР°С‚ РІР»Р°СЃРЅРµ РЅРѕРјРµСЂР°: С†Рµ Р±СѓРґРµ РїСЂРѕСЃС‚Рѕ С‡РёСЃР»Рѕ, Р±РµР· РєСЂР°РїРєРё
+			{0.5em} % РІС–РґСЃС‚Р°РЅСЊ РјС–Р¶ РЅРѕРјРµСЂРѕРј С– РЅР°Р·РІРѕСЋ
+			{} % С‚РµРєСЃС‚, С‰Рѕ РїРµСЂРµРґСѓС” РЅР°Р·РІС–
 	
-% тепер --- для підрозділу
-\titleformat{\section}[block] % указуємо, що модифікуємо саме підрозділ
-			{\normalsize} % указуємо формат назви (жирний)
-			{\hspace{1.25cm}\thesection} % указуємо формат власне номера: це буде просто число, без крапки
-			{0.5em} % відстань між номером і назвою
-			{} % текст, що передує назві
+% С‚РµРїРµСЂ --- РґР»СЏ РїС–РґСЂРѕР·РґС–Р»Сѓ
+\titleformat{\section}[block] % СѓРєР°Р·СѓС”РјРѕ, С‰Рѕ РјРѕРґРёС„С–РєСѓС”РјРѕ СЃР°РјРµ РїС–РґСЂРѕР·РґС–Р»
+			{\normalsize} % СѓРєР°Р·СѓС”РјРѕ С„РѕСЂРјР°С‚ РЅР°Р·РІРё (Р¶РёСЂРЅРёР№)
+			{\hspace{1.25cm}\thesection} % СѓРєР°Р·СѓС”РјРѕ С„РѕСЂРјР°С‚ РІР»Р°СЃРЅРµ РЅРѕРјРµСЂР°: С†Рµ Р±СѓРґРµ РїСЂРѕСЃС‚Рѕ С‡РёСЃР»Рѕ, Р±РµР· РєСЂР°РїРєРё
+			{0.5em} % РІС–РґСЃС‚Р°РЅСЊ РјС–Р¶ РЅРѕРјРµСЂРѕРј С– РЅР°Р·РІРѕСЋ
+			{} % С‚РµРєСЃС‚, С‰Рѕ РїРµСЂРµРґСѓС” РЅР°Р·РІС–
 
-% тепер --- для підрозділу ще нижчого рівня
-\titleformat{\subsection}[block] % указуємо, що модифікуємо саме підрозділ нижнього рівня
-			{\normalsize} % указуємо формат назви (жирний)
-			{\hspace{1.25cm}\thesubsection} % указуємо формат власне номера: це буде просто число, без крапки
-			{0.5em} % відстань між номером і назвою
-			{} % текст, що передує назві
+% С‚РµРїРµСЂ --- РґР»СЏ РїС–РґСЂРѕР·РґС–Р»Сѓ С‰Рµ РЅРёР¶С‡РѕРіРѕ СЂС–РІРЅСЏ
+\titleformat{\subsection}[block] % СѓРєР°Р·СѓС”РјРѕ, С‰Рѕ РјРѕРґРёС„С–РєСѓС”РјРѕ СЃР°РјРµ РїС–РґСЂРѕР·РґС–Р» РЅРёР¶РЅСЊРѕРіРѕ СЂС–РІРЅСЏ
+			{\normalsize} % СѓРєР°Р·СѓС”РјРѕ С„РѕСЂРјР°С‚ РЅР°Р·РІРё (Р¶РёСЂРЅРёР№)
+			{\hspace{1.25cm}\thesubsection} % СѓРєР°Р·СѓС”РјРѕ С„РѕСЂРјР°С‚ РІР»Р°СЃРЅРµ РЅРѕРјРµСЂР°: С†Рµ Р±СѓРґРµ РїСЂРѕСЃС‚Рѕ С‡РёСЃР»Рѕ, Р±РµР· РєСЂР°РїРєРё
+			{0.5em} % РІС–РґСЃС‚Р°РЅСЊ РјС–Р¶ РЅРѕРјРµСЂРѕРј С– РЅР°Р·РІРѕСЋ
+			{} % С‚РµРєСЃС‚, С‰Рѕ РїРµСЂРµРґСѓС” РЅР°Р·РІС–
 			
-% тепер задамо відступи для заголовку розділу
-\titlespacing{\chapter} % указуємо, що модифікуємо саме розділ
-			{0pt} % відступ зліва
-			{-28pt} % відступ зверху (немає)
-			{48pt} % відступ знизу (2 рядки)
+% С‚РµРїРµСЂ Р·Р°РґР°РјРѕ РІС–РґСЃС‚СѓРїРё РґР»СЏ Р·Р°РіРѕР»РѕРІРєСѓ СЂРѕР·РґС–Р»Сѓ
+\titlespacing{\chapter} % СѓРєР°Р·СѓС”РјРѕ, С‰Рѕ РјРѕРґРёС„С–РєСѓС”РјРѕ СЃР°РјРµ СЂРѕР·РґС–Р»
+			{0pt} % РІС–РґСЃС‚СѓРї Р·Р»С–РІР°
+			{-28pt} % РІС–РґСЃС‚СѓРї Р·РІРµСЂС…Сѓ (РЅРµРјР°С”)
+			{48pt} % РІС–РґСЃС‚СѓРї Р·РЅРёР·Сѓ (2 СЂСЏРґРєРё)
 
-% тепер задамо відступи для заголовку підрозділу			
-\titlespacing{\section} % указуємо, що модифікуємо саме підрозділ
-			{0pt} % відступ зліва
-			{48pt} % відступ зверху (2 рядки)
-			{48pt} % відступ знизу (2 рядки)
+% С‚РµРїРµСЂ Р·Р°РґР°РјРѕ РІС–РґСЃС‚СѓРїРё РґР»СЏ Р·Р°РіРѕР»РѕРІРєСѓ РїС–РґСЂРѕР·РґС–Р»Сѓ			
+\titlespacing{\section} % СѓРєР°Р·СѓС”РјРѕ, С‰Рѕ РјРѕРґРёС„С–РєСѓС”РјРѕ СЃР°РјРµ РїС–РґСЂРѕР·РґС–Р»
+			{0pt} % РІС–РґСЃС‚СѓРї Р·Р»С–РІР°
+			{48pt} % РІС–РґСЃС‚СѓРї Р·РІРµСЂС…Сѓ (2 СЂСЏРґРєРё)
+			{48pt} % РІС–РґСЃС‚СѓРї Р·РЅРёР·Сѓ (2 СЂСЏРґРєРё)
 			
-% тепер задамо відступи для заголовку пункта
-\titlespacing{\subsection} % указуємо, що модифікуємо саме пункт
-			{0pt} % відступ зліва
-			{48pt} % відступ зверху (2 рядки)
-			{48pt} % відступ знизу (2 рядки)
+% С‚РµРїРµСЂ Р·Р°РґР°РјРѕ РІС–РґСЃС‚СѓРїРё РґР»СЏ Р·Р°РіРѕР»РѕРІРєСѓ РїСѓРЅРєС‚Р°
+\titlespacing{\subsection} % СѓРєР°Р·СѓС”РјРѕ, С‰Рѕ РјРѕРґРёС„С–РєСѓС”РјРѕ СЃР°РјРµ РїСѓРЅРєС‚
+			{0pt} % РІС–РґСЃС‚СѓРї Р·Р»С–РІР°
+			{48pt} % РІС–РґСЃС‚СѓРї Р·РІРµСЂС…Сѓ (2 СЂСЏРґРєРё)
+			{48pt} % РІС–РґСЃС‚СѓРї Р·РЅРёР·Сѓ (2 СЂСЏРґРєРё)
 
-% тепер зробимо так, щоб між двома заголовками була звичайна відстань
+% С‚РµРїРµСЂ Р·СЂРѕР±РёРјРѕ С‚Р°Рє, С‰РѕР± РјС–Р¶ РґРІРѕРјР° Р·Р°РіРѕР»РѕРІРєР°РјРё Р±СѓР»Р° Р·РІРёС‡Р°Р№РЅР° РІС–РґСЃС‚Р°РЅСЊ
 \preto\section{%
 	\ifnum\value{section}=0\addvspace{-48pt}\fi%
 }
@@ -188,14 +188,14 @@
 	\ifnum\value{subsection}=0\addvspace{-48pt}\fi%
 }
 			
-% видозмінюємо зміст
+% РІРёРґРѕР·РјС–РЅСЋС”РјРѕ Р·РјС–СЃС‚
 \makeatletter
 \renewcommand{\tableofcontents}{
 	\clearpage
 	\thispagestyle{plain}
 
 	\begin{center}
-	  \MakeUppercase{Зміст}
+	  \MakeUppercase{Р—РјС–СЃС‚}
 	\end{center}
 	
 	\addvspace{42pt}
@@ -204,69 +204,69 @@
 }
 \makeatother
 
-% змінюємо формат нумерації формул
+% Р·РјС–РЅСЋС”РјРѕ С„РѕСЂРјР°С‚ РЅСѓРјРµСЂР°С†С–С— С„РѕСЂРјСѓР»
 \renewcommand{\theequation}{\arabic{chapter}.\arabic{equation}}
 
-% задамо оновлені списки, з правильними відступами
-% нумерований першого рівня
+% Р·Р°РґР°РјРѕ РѕРЅРѕРІР»РµРЅС– СЃРїРёСЃРєРё, Р· РїСЂР°РІРёР»СЊРЅРёРјРё РІС–РґСЃС‚СѓРїР°РјРё
+% РЅСѓРјРµСЂРѕРІР°РЅРёР№ РїРµСЂС€РѕРіРѕ СЂС–РІРЅСЏ
 \AddEnumerateCounter{\asbuk}{\@asbuk}{\cyrm}
 \setlist[itemize,1]{label=-, partopsep=0pt, parsep=0pt, topsep=0pt, itemsep=0pt, itemindent=1.7cm, leftmargin=0pt}
 \setlist[itemize,2]{label=-, partopsep=0pt, parsep=0pt, topsep=0pt, itemsep=0pt, itemindent=2.25cm, leftmargin=0pt}
 \setlist[enumerate,1]{label=\asbuk*), partopsep=0pt, parsep=0pt, topsep=0pt, itemsep=0pt, itemindent=1.9cm, leftmargin=0pt}
 \setlist[enumerate,2]{label=\arabic*), partopsep=0pt, parsep=0pt, topsep=0pt, itemsep=0pt, itemindent=2.6cm, leftmargin=0pt}
 
-% тепер займемося змістом
-% задаємо відстань між точками
+% С‚РµРїРµСЂ Р·Р°Р№РјРµРјРѕСЃСЏ Р·РјС–СЃС‚РѕРј
+% Р·Р°РґР°С”РјРѕ РІС–РґСЃС‚Р°РЅСЊ РјС–Р¶ С‚РѕС‡РєР°РјРё
 \renewcommand{\cftchapdotsep}{1}
 \renewcommand{\cftsecdotsep}{1}
 \renewcommand{\cftsubsecdotsep}{1}
 
-% задаємо розмір поля, що виділяється під номер сторінки
+% Р·Р°РґР°С”РјРѕ СЂРѕР·РјС–СЂ РїРѕР»СЏ, С‰Рѕ РІРёРґС–Р»СЏС”С‚СЊСЃСЏ РїС–Рґ РЅРѕРјРµСЂ СЃС‚РѕСЂС–РЅРєРё
 \cftsetpnumwidth{1em}
 
-% задамо відстані між рядками в змісті
+% Р·Р°РґР°РјРѕ РІС–РґСЃС‚Р°РЅС– РјС–Р¶ СЂСЏРґРєР°РјРё РІ Р·РјС–СЃС‚С–
 \setlength\cftbeforechapskip{0pt}
 
-% займемося розділами
-\renewcommand{\cftchapaftersnum}{} % що буде писатися після номеру розділу (нічого)
-\renewcommand{\cftchapindent}{0cm} % відступ номера розділу від лівого краю
-\renewcommand{\cftchapnumwidth}{1em} % розмір поля, що виділяється під номер розділу
-\renewcommand{\cftchappagefont}{\mdseries} % стиль номеру сторінки (звичайний, 14pt)
-\renewcommand{\cftchapfont}{\mdseries} % стиль заголовку (звичайний)
-\renewcommand{\cftchapleader}{\cftdotfill{\cftchapdotsep}} % чим заповнювати проміжок від заголовку до номеру сторінки (точками)
+% Р·Р°Р№РјРµРјРѕСЃСЏ СЂРѕР·РґС–Р»Р°РјРё
+\renewcommand{\cftchapaftersnum}{} % С‰Рѕ Р±СѓРґРµ РїРёСЃР°С‚РёСЃСЏ РїС–СЃР»СЏ РЅРѕРјРµСЂСѓ СЂРѕР·РґС–Р»Сѓ (РЅС–С‡РѕРіРѕ)
+\renewcommand{\cftchapindent}{0cm} % РІС–РґСЃС‚СѓРї РЅРѕРјРµСЂР° СЂРѕР·РґС–Р»Сѓ РІС–Рґ Р»С–РІРѕРіРѕ РєСЂР°СЋ
+\renewcommand{\cftchapnumwidth}{1em} % СЂРѕР·РјС–СЂ РїРѕР»СЏ, С‰Рѕ РІРёРґС–Р»СЏС”С‚СЊСЃСЏ РїС–Рґ РЅРѕРјРµСЂ СЂРѕР·РґС–Р»Сѓ
+\renewcommand{\cftchappagefont}{\mdseries} % СЃС‚РёР»СЊ РЅРѕРјРµСЂСѓ СЃС‚РѕСЂС–РЅРєРё (Р·РІРёС‡Р°Р№РЅРёР№, 14pt)
+\renewcommand{\cftchapfont}{\mdseries} % СЃС‚РёР»СЊ Р·Р°РіРѕР»РѕРІРєСѓ (Р·РІРёС‡Р°Р№РЅРёР№)
+\renewcommand{\cftchapleader}{\cftdotfill{\cftchapdotsep}} % С‡РёРј Р·Р°РїРѕРІРЅСЋРІР°С‚Рё РїСЂРѕРјС–Р¶РѕРє РІС–Рґ Р·Р°РіРѕР»РѕРІРєСѓ РґРѕ РЅРѕРјРµСЂСѓ СЃС‚РѕСЂС–РЅРєРё (С‚РѕС‡РєР°РјРё)
 
-% тепер займемося підрозділами
-\renewcommand{\cftsecaftersnum}{} % що буде писатися після номеру підрозділу (нічого)
-\renewcommand{\cftsecindent}{1em} % відступ номера підрозділу від лівого краю
-\renewcommand{\cftsecnumwidth}{2em} % розмір поля, що виділяється під номер підрозділу
-\renewcommand{\cftsecpagefont}{\mdseries} % стиль номеру сторінки (звичайний, 14pt)
-\renewcommand{\cftsecfont}{\mdseries} % стиль заголовку (звичайний)
-\renewcommand{\cftsecleader}{\cftdotfill{\cftsecdotsep}} % чим заповнювати проміжок від заголовку до номеру сторінки (точками)
+% С‚РµРїРµСЂ Р·Р°Р№РјРµРјРѕСЃСЏ РїС–РґСЂРѕР·РґС–Р»Р°РјРё
+\renewcommand{\cftsecaftersnum}{} % С‰Рѕ Р±СѓРґРµ РїРёСЃР°С‚РёСЃСЏ РїС–СЃР»СЏ РЅРѕРјРµСЂСѓ РїС–РґСЂРѕР·РґС–Р»Сѓ (РЅС–С‡РѕРіРѕ)
+\renewcommand{\cftsecindent}{1em} % РІС–РґСЃС‚СѓРї РЅРѕРјРµСЂР° РїС–РґСЂРѕР·РґС–Р»Сѓ РІС–Рґ Р»С–РІРѕРіРѕ РєСЂР°СЋ
+\renewcommand{\cftsecnumwidth}{2em} % СЂРѕР·РјС–СЂ РїРѕР»СЏ, С‰Рѕ РІРёРґС–Р»СЏС”С‚СЊСЃСЏ РїС–Рґ РЅРѕРјРµСЂ РїС–РґСЂРѕР·РґС–Р»Сѓ
+\renewcommand{\cftsecpagefont}{\mdseries} % СЃС‚РёР»СЊ РЅРѕРјРµСЂСѓ СЃС‚РѕСЂС–РЅРєРё (Р·РІРёС‡Р°Р№РЅРёР№, 14pt)
+\renewcommand{\cftsecfont}{\mdseries} % СЃС‚РёР»СЊ Р·Р°РіРѕР»РѕРІРєСѓ (Р·РІРёС‡Р°Р№РЅРёР№)
+\renewcommand{\cftsecleader}{\cftdotfill{\cftsecdotsep}} % С‡РёРј Р·Р°РїРѕРІРЅСЋРІР°С‚Рё РїСЂРѕРјС–Р¶РѕРє РІС–Рґ Р·Р°РіРѕР»РѕРІРєСѓ РґРѕ РЅРѕРјРµСЂСѓ СЃС‚РѕСЂС–РЅРєРё (С‚РѕС‡РєР°РјРё)
 
-% тепер займемося пунктами
-\renewcommand{\cftsubsecaftersnum}{} % що буде писатися після номеру пункта (нічого)
-\renewcommand{\cftsubsecindent}{3em} % відступ номера пункта від лівого краю
-\renewcommand{\cftsubsecnumwidth}{2.5em} % розмір поля, що виділяється під номер пункта
-\renewcommand{\cftsubsecpagefont}{\mdseries} % стиль номеру сторінки (звичайний, 14pt)
-\renewcommand{\cftsubsecfont}{\mdseries} % стиль заголовку (звичайний)
-\renewcommand{\cftsubsecleader}{\cftdotfill{\cftsubsecdotsep}} % чим заповнювати проміжок від заголовку до номеру сторінки (точками)
+% С‚РµРїРµСЂ Р·Р°Р№РјРµРјРѕСЃСЏ РїСѓРЅРєС‚Р°РјРё
+\renewcommand{\cftsubsecaftersnum}{} % С‰Рѕ Р±СѓРґРµ РїРёСЃР°С‚РёСЃСЏ РїС–СЃР»СЏ РЅРѕРјРµСЂСѓ РїСѓРЅРєС‚Р° (РЅС–С‡РѕРіРѕ)
+\renewcommand{\cftsubsecindent}{3em} % РІС–РґСЃС‚СѓРї РЅРѕРјРµСЂР° РїСѓРЅРєС‚Р° РІС–Рґ Р»С–РІРѕРіРѕ РєСЂР°СЋ
+\renewcommand{\cftsubsecnumwidth}{2.5em} % СЂРѕР·РјС–СЂ РїРѕР»СЏ, С‰Рѕ РІРёРґС–Р»СЏС”С‚СЊСЃСЏ РїС–Рґ РЅРѕРјРµСЂ РїСѓРЅРєС‚Р°
+\renewcommand{\cftsubsecpagefont}{\mdseries} % СЃС‚РёР»СЊ РЅРѕРјРµСЂСѓ СЃС‚РѕСЂС–РЅРєРё (Р·РІРёС‡Р°Р№РЅРёР№, 14pt)
+\renewcommand{\cftsubsecfont}{\mdseries} % СЃС‚РёР»СЊ Р·Р°РіРѕР»РѕРІРєСѓ (Р·РІРёС‡Р°Р№РЅРёР№)
+\renewcommand{\cftsubsecleader}{\cftdotfill{\cftsubsecdotsep}} % С‡РёРј Р·Р°РїРѕРІРЅСЋРІР°С‚Рё РїСЂРѕРјС–Р¶РѕРє РІС–Рґ Р·Р°РіРѕР»РѕРІРєСѓ РґРѕ РЅРѕРјРµСЂСѓ СЃС‚РѕСЂС–РЅРєРё (С‚РѕС‡РєР°РјРё)
 
-% заголовки таблиць, рисунків і лістингів
-\DeclareCaptionLabelFormat{tablecap}{Таблиця #2} % формат за промовчанням "Табл." не влаштовує
-\DeclareCaptionLabelFormat{figurecap}{Рисунок #2} % формат за промовчанням "Рис." не влаштовує
-\DeclareCaptionFormat{listing}{Лістинг файлу #3} % формат за промовчанням "Listing" не влаштовує
+% Р·Р°РіРѕР»РѕРІРєРё С‚Р°Р±Р»РёС†СЊ, СЂРёСЃСѓРЅРєС–РІ С– Р»С–СЃС‚РёРЅРіС–РІ
+\DeclareCaptionLabelFormat{tablecap}{РўР°Р±Р»РёС†СЏ #2} % С„РѕСЂРјР°С‚ Р·Р° РїСЂРѕРјРѕРІС‡Р°РЅРЅСЏРј "РўР°Р±Р»." РЅРµ РІР»Р°С€С‚РѕРІСѓС”
+\DeclareCaptionLabelFormat{figurecap}{Р РёСЃСѓРЅРѕРє #2} % С„РѕСЂРјР°С‚ Р·Р° РїСЂРѕРјРѕРІС‡Р°РЅРЅСЏРј "Р РёСЃ." РЅРµ РІР»Р°С€С‚РѕРІСѓС”
+\DeclareCaptionFormat{listing}{Р›С–СЃС‚РёРЅРі С„Р°Р№Р»Сѓ #3} % С„РѕСЂРјР°С‚ Р·Р° РїСЂРѕРјРѕРІС‡Р°РЅРЅСЏРј "Listing" РЅРµ РІР»Р°С€С‚РѕРІСѓС”
 
-\captionsetup[table]{margin=0pt,singlelinecheck=false, justification=justified, labelsep=endash, labelformat=tablecap, font = {stretch = 1.5}, belowskip=18pt, aboveskip=3pt} % формат для таблиць
-\captionsetup[figure]{justification=centering, labelsep=endash, labelformat=figurecap, font = {stretch = 1.5}} % формат для рисунків
-\captionsetup[lstlisting]{margin=0pt, format=listing, singlelinecheck=false, font = {stretch = 1.5}} % формат для лістингів
+\captionsetup[table]{margin=0pt,singlelinecheck=false, justification=justified, labelsep=endash, labelformat=tablecap, font = {stretch = 1.5}, belowskip=18pt, aboveskip=3pt} % С„РѕСЂРјР°С‚ РґР»СЏ С‚Р°Р±Р»РёС†СЊ
+\captionsetup[figure]{justification=centering, labelsep=endash, labelformat=figurecap, font = {stretch = 1.5}} % С„РѕСЂРјР°С‚ РґР»СЏ СЂРёСЃСѓРЅРєС–РІ
+\captionsetup[lstlisting]{margin=0pt, format=listing, singlelinecheck=false, font = {stretch = 1.5}} % С„РѕСЂРјР°С‚ РґР»СЏ Р»С–СЃС‚РёРЅРіС–РІ
 
 \setlength{\textfloatsep}{21pt}
 \setlength{\intextsep}{21pt}
 
-% команда, що змінює латинські літери на кирилічні в підрисунках
+% РєРѕРјР°РЅРґР°, С‰Рѕ Р·РјС–РЅСЋС” Р»Р°С‚РёРЅСЃСЊРєС– Р»С–С‚РµСЂРё РЅР° РєРёСЂРёР»С–С‡РЅС– РІ РїС–РґСЂРёСЃСѓРЅРєР°С…
 \renewcommand{\thesubfigure}{\asbuk{subfigure}}
 
-% нове оточення для довгих таблиць
+% РЅРѕРІРµ РѕС‚РѕС‡РµРЅРЅСЏ РґР»СЏ РґРѕРІРіРёС… С‚Р°Р±Р»РёС†СЊ
 \renewenvironment{table}[4]{
 	\begingroup\centering
 	\setlength{\LTpre}{-14pt}
@@ -278,7 +278,7 @@
 		#4
 		\endfirsthead
 		\kill
-		\caption*{Продовження таблиці \thetable}\\
+		\caption*{РџСЂРѕРґРѕРІР¶РµРЅРЅСЏ С‚Р°Р±Р»РёС†С– \thetable}\\
 		#4
 		\endhead
 		\hline
@@ -289,51 +289,51 @@
 	\endgroup	
 }
 
-% наведемо порядок із відступами в бібліографії
+% РЅР°РІРµРґРµРјРѕ РїРѕСЂСЏРґРѕРє С–Р· РІС–РґСЃС‚СѓРїР°РјРё РІ Р±С–Р±Р»С–РѕРіСЂР°С„С–С—
 \patchcmd{\thebibliography}
   {\advance\leftmargin\labelsep}
   {\leftmargin=0pt\itemindent=1.9cm\advance\itemindent\labelsep}
   {}{}
 
-% змінюємо формат номеру для переліку посилань (число + крапка)
+% Р·РјС–РЅСЋС”РјРѕ С„РѕСЂРјР°С‚ РЅРѕРјРµСЂСѓ РґР»СЏ РїРµСЂРµР»С–РєСѓ РїРѕСЃРёР»Р°РЅСЊ (С‡РёСЃР»Рѕ + РєСЂР°РїРєР°)
 \makeatletter
 \renewcommand{\@biblabel}[1]{#1.}
 \makeatother
 
-% оновимо стандартне оточення, оскільки потрібно додати перелік посилань у зміст
+% РѕРЅРѕРІРёРјРѕ СЃС‚Р°РЅРґР°СЂС‚РЅРµ РѕС‚РѕС‡РµРЅРЅСЏ, РѕСЃРєС–Р»СЊРєРё РїРѕС‚СЂС–Р±РЅРѕ РґРѕРґР°С‚Рё РїРµСЂРµР»С–Рє РїРѕСЃРёР»Р°РЅСЊ Сѓ Р·РјС–СЃС‚
 \let\tempbib\thebibliography
 \let\tempbibend\endthebibliography
 \renewenvironment{thebibliography}{
-	\renewcommand{\bibname}{ПЕРЕЛІК ПОСИЛАНЬ}% змінюємо заголовок
-	\tempbib{99.}% максимально можливий номер джерела --- 99
-	% далі наведемо порядок із відступами
+	\renewcommand{\bibname}{РџР•Р Р•Р›Р†Рљ РџРћРЎРР›РђРќР¬}% Р·РјС–РЅСЋС”РјРѕ Р·Р°РіРѕР»РѕРІРѕРє
+	\tempbib{99.}% РјР°РєСЃРёРјР°Р»СЊРЅРѕ РјРѕР¶Р»РёРІРёР№ РЅРѕРјРµСЂ РґР¶РµСЂРµР»Р° --- 99
+	% РґР°Р»С– РЅР°РІРµРґРµРјРѕ РїРѕСЂСЏРґРѕРє С–Р· РІС–РґСЃС‚СѓРїР°РјРё
 	\setlength\partopsep{0pt}
 	\setlength\parskip{0pt}
 	\setlength\parsep{0pt}
 	\setlength\topsep{0pt}
 	\setlength\itemsep{0pt}
-	\addcontentsline{toc}{chapter}{Перелік посилань}% додаємо в зміст
+	\addcontentsline{toc}{chapter}{РџРµСЂРµР»С–Рє РїРѕСЃРёР»Р°РЅСЊ}% РґРѕРґР°С”РјРѕ РІ Р·РјС–СЃС‚
 	}
 	{
 	\tempbibend
 }
 
-% спеціальна команда для вставки лістингів
+% СЃРїРµС†С–Р°Р»СЊРЅР° РєРѕРјР°РЅРґР° РґР»СЏ РІСЃС‚Р°РІРєРё Р»С–СЃС‚РёРЅРіС–РІ
 \newcommand{\listing}[2]{\singlespacing\lstinputlisting[language=C++, basicstyle=\tiny, breaklines=true, caption={#1}]{#2}\doublespacing}
 
-% нові команди для анотацій
-% двома мовами
-\newcommand{\abstractUkr}{\chapter*{АНОТАЦІЯ}\thispagestyle{empty}\renewcommand{\arraystretch}{1.5}\setfontsize{14}}
+% РЅРѕРІС– РєРѕРјР°РЅРґРё РґР»СЏ Р°РЅРѕС‚Р°С†С–Р№
+% РґРІРѕРјР° РјРѕРІР°РјРё
+\newcommand{\abstractUkr}{\chapter*{РђРќРћРўРђР¦Р†РЇ}\thispagestyle{empty}\renewcommand{\arraystretch}{1.5}\setfontsize{14}}
 \newcommand{\abstractEng}{\chapter*{ABSTRACT}\thispagestyle{empty}\renewcommand{\arraystretch}{1.5}\setfontsize{14}}
 
-% нова команда для титульного аркушу
-% \maketitlepage{params}, де params --- це розділені комами пари "параметр={значення}"
-% StudentName --- прізвище, ініціали студента
-% StudentMale --- стать студента (true, якщо чоловік, false --- якщо жінка)
-% StudentGroup --- група студента
-% Title --- назва документа (без лапок)
-% SupervisorDegree --- науковий ступінь, учене звання керівника роботи
-% SupervisorName --- прізвище, ініціали керівника роботи
+% РЅРѕРІР° РєРѕРјР°РЅРґР° РґР»СЏ С‚РёС‚СѓР»СЊРЅРѕРіРѕ Р°СЂРєСѓС€Сѓ
+% \maketitlepage{params}, РґРµ params --- С†Рµ СЂРѕР·РґС–Р»РµРЅС– РєРѕРјР°РјРё РїР°СЂРё "РїР°СЂР°РјРµС‚СЂ={Р·РЅР°С‡РµРЅРЅСЏ}"
+% StudentName --- РїСЂС–Р·РІРёС‰Рµ, С–РЅС–С†С–Р°Р»Рё СЃС‚СѓРґРµРЅС‚Р°
+% StudentMale --- СЃС‚Р°С‚СЊ СЃС‚СѓРґРµРЅС‚Р° (true, СЏРєС‰Рѕ С‡РѕР»РѕРІС–Рє, false --- СЏРєС‰Рѕ Р¶С–РЅРєР°)
+% StudentGroup --- РіСЂСѓРїР° СЃС‚СѓРґРµРЅС‚Р°
+% Title --- РЅР°Р·РІР° РґРѕРєСѓРјРµРЅС‚Р° (Р±РµР· Р»Р°РїРѕРє)
+% SupervisorDegree --- РЅР°СѓРєРѕРІРёР№ СЃС‚СѓРїС–РЅСЊ, СѓС‡РµРЅРµ Р·РІР°РЅРЅСЏ РєРµСЂС–РІРЅРёРєР° СЂРѕР±РѕС‚Рё
+% SupervisorName --- РїСЂС–Р·РІРёС‰Рµ, С–РЅС–С†С–Р°Р»Рё РєРµСЂС–РІРЅРёРєР° СЂРѕР±РѕС‚Рё
 \makeatletter
 \define@cmdkey[Work]{Title}{StudentName}{}
 \define@boolkey[Work]{Title}{StudentMale}{}
@@ -345,17 +345,17 @@
 	  \setkeys[Work]{Title}{#1}
 	  \thispagestyle{empty}
 	  \setlength{\parindent}{0cm}
-		\begingroup\centering % центрування
+		\begingroup\centering % С†РµРЅС‚СЂСѓРІР°РЅРЅСЏ
 			\setfontsize{14}
-			\MakeUppercase{Національний технічний університет України}
+			\MakeUppercase{РќР°С†С–РѕРЅР°Р»СЊРЅРёР№ С‚РµС…РЅС–С‡РЅРёР№ СѓРЅС–РІРµСЂСЃРёС‚РµС‚ РЈРєСЂР°С—РЅРё}
 			
-			\MakeUppercase{\guillemotleft Київський політехнічний інститут}
+			\MakeUppercase{\guillemotleft РљРёС—РІСЃСЊРєРёР№ РїРѕР»С–С‚РµС…РЅС–С‡РЅРёР№ С–РЅСЃС‚РёС‚СѓС‚}
 			
-			\MakeUppercase{імені Ігоря Сікорського\guillemotright}
+			\MakeUppercase{С–РјРµРЅС– Р†РіРѕСЂСЏ РЎС–РєРѕСЂСЃСЊРєРѕРіРѕ\guillemotright}
 
-			Факультет прикладної математики
+			Р¤Р°РєСѓР»СЊС‚РµС‚ РїСЂРёРєР»Р°РґРЅРѕС— РјР°С‚РµРјР°С‚РёРєРё
 			
-			Кафедра прикладної математики
+			РљР°С„РµРґСЂР° РїСЂРёРєР»Р°РґРЅРѕС— РјР°С‚РµРјР°С‚РёРєРё
 		
 		\vfill
 			
@@ -365,16 +365,16 @@
 		\vfill
 		
 		\ifWork@Title@StudentMale
-			Виконав:
+			Р’РёРєРѕРЅР°РІ:
 		\else
-			Виконала:
-		\fi \hfill Керівник:
+			Р’РёРєРѕРЅР°Р»Р°:
+		\fi \hfill РљРµСЂС–РІРЅРёРє:
 		
 		\ifWork@Title@StudentMale
-			студент
+			СЃС‚СѓРґРµРЅС‚
 		\else
-			студентка
-		\fi групи \cmdWork@Title@StudentGroup  \hfill 
+			СЃС‚СѓРґРµРЅС‚РєР°
+		\fi РіСЂСѓРїРё \cmdWork@Title@StudentGroup  \hfill 
 		\ifundef{\cmdWork@Title@SupervisorDegree}{\relax}%
 				{\cmdWork@Title@SupervisorDegree}
 				
@@ -383,19 +383,19 @@
 		\vfill
 		
 		\begingroup\centering
-			Київ --- \the\year
+			РљРёС—РІ --- \the\year
 			
 		\endgroup
 		
-		\clearpage % починаємо з нової сторінки
+		\clearpage % РїРѕС‡РёРЅР°С”РјРѕ Р· РЅРѕРІРѕС— СЃС‚РѕСЂС–РЅРєРё
 
-		\setcounter{page}{2} % номер сторінки буде 2
+		\setcounter{page}{2} % РЅРѕРјРµСЂ СЃС‚РѕСЂС–РЅРєРё Р±СѓРґРµ 2
 
 		\pagestyle{plain}
 
-		\setlength{\parindent}{1.25cm} % задаємо відступ першого рядка абзацу (5 знаків, або 1,25 см)
+		\setlength{\parindent}{1.25cm} % Р·Р°РґР°С”РјРѕ РІС–РґСЃС‚СѓРї РїРµСЂС€РѕРіРѕ СЂСЏРґРєР° Р°Р±Р·Р°С†Сѓ (5 Р·РЅР°РєС–РІ, Р°Р±Рѕ 1,25 СЃРј)
 		
-		% пропуск рядка до та після формули
+		% РїСЂРѕРїСѓСЃРє СЂСЏРґРєР° РґРѕ С‚Р° РїС–СЃР»СЏ С„РѕСЂРјСѓР»Рё
 		\setlength{\belowdisplayskip}{21pt}
 		\setlength{\abovedisplayskip}{21pt}
 		\setlength{\belowdisplayshortskip}{21pt}
@@ -403,7 +403,7 @@
 }
 \makeatother
 
-% виправляємо помилки з апострофами в формулах
+% РІРёРїСЂР°РІР»СЏС”РјРѕ РїРѕРјРёР»РєРё Р· Р°РїРѕСЃС‚СЂРѕС„Р°РјРё РІ С„РѕСЂРјСѓР»Р°С…
 \makeatletter
 \def\latex@@rquote{^\bgroup\prim@s} 
 \let\hang@@h@ngrquote\h@ngrquote
