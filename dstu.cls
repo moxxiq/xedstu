@@ -1,28 +1,57 @@
+% за основу взято
 % ******* Клас для написання документів за ДСТУ 3008-95 ********
 % ***** автори: Тавров Д. Ю., Борисенко П. Б., Дутчак І. О. ****
 
-% 1. Ідентифікуємо клас
-\ProvidesClass{dstu}[2015/12/16 v1.0 Клас для написання документів за ДСТУ 3008-95]
+%
+% TODO: Можна використати для скидання лічильника замість задавання 0
+% \counterwithin{figure}{section}
+% \counterwithin{table}{section}
+%
+
+% Ідентифікація класу
+\ProvidesClass{xedstu}[Клас для написання документів за ДСТУ]
 \NeedsTeXFormat{LaTeX2e} % потрібний формат
 
-% 2. Завантажуємо "батьківський клас"
-\LoadClass[a4paper,14pt,ukrainian,oneside]{extreport}
+% "Батьківський клас"
+\LoadClass[a4paper,14pt,ukrainian,oneside,xetex]{extreport}
+% Необхідні пакети
+\RequirePackage{fontspec} % XeTeX замість попередніх для PDFLaTex
+
+\RequirePackage{xunicode} % Unicode для XeTeX
+\RequirePackage{xltxtra}
+
+\RequirePackage{listings} % Вставка лістингів програм
+\RequirePackage[verbatim]{lstfiracode} % лігатури для лістингу
+% \RequirePackage{xcolor} % кольори для стилів
+
+% Мова
+\RequirePackage{polyglossia}
+% мова та нумерація
+\setdefaultlanguage[numerals=cyrillic-alph]{ukrainian}
+
+% Шрифти, xelatex
+\defaultfontfeatures{Ligatures=TeX}
+% Times New Roman за вимогами
+% без порушень ліцензії на Dual Boot Linux машині можна змонтувати диск
+% на якому стоїть ліцензійний Windows та перекинути лінками в /etc/font потрібні шрифти
+\setmainfont{Times New Roman}
+\newfontfamily\cyrillicfont{Times New Roman}
+% або це
+% \setsansfont{Linux Libertine O}
+% \newfontfamily\cyrillicfont{Linux Libertine O}
+% або
+% \setromanfont[Mapping=tex-text]{Linux Libertine O}
+%
+\setmonofont[Contextuals={Alternate}]{JetBrains Mono} % https://www.jetbrains.com/lp/mono/
+\newfontfamily{\cyrillicfonttt}[Contextuals={Alternate}]{JetBrains Mono}
+
+% або
+% \setmonofont{FiraCode-Regular.otf}[Contextuals=Alternate]
 
 
-% 3. Завантажуємо пакети
-% мовні пакети
-\RequirePackage{cmap}% для кодування шрифтів у pdf
-\RequirePackage[T2A]{fontenc} % пакет для підтримки кирилічних шрифтів
-\RequirePackage[cp1251]{inputenc} % пакет для підтримкм Windows'івського кодування cp1251
-\RequirePackage[russian,ukrainian]{babel} % пакет для підтримки української та російської мов
-\RequirePackage{pscyr} % пакет із гарними кирилічними шрифтами
-\RequirePackage{mathtext} % потрібні символи в режимі математичних формул
-\RequirePackage{amssymb,amsfonts,amsmath,amsthm} % потрібні символи в режимі математичних формул
-\RequirePackage{textcomp} % потрібні символи в режимі математичних формул
-\RequirePackage{upgreek} % пакет для прямих грецьких літер
 
+%% вставка з dstu.cls
 % графічні пакети
-\RequirePackage{graphicx} % основний пакет для вставки графіки
 \RequirePackage{subfig} % пакет для вставки підрисунків
 \RequirePackage{flafter} % пакет гарантує, що рисунок чи таблиця ніколи не з'являться раніше посилання на самих себе
 \RequirePackage{caption} % пакет для персоналізації заголовків рисунків та таблиць
@@ -47,6 +76,9 @@
 % пакет для коректного представлення інтернет-посилань у "Переліку посилань"
 \RequirePackage{url}
 
+% для нормального відображення _
+\RequirePackage{underscore}
+
 % пакет для нормальних пробілів після ком у десяткових дробах
 \RequirePackage{icomma}
 
@@ -62,12 +94,34 @@
 % пакет для кодів програм
 \RequirePackage{verbatim}
 
+% пакет для закресленого тексту
+\RequirePackage{soul}
 
 % 4. Основна частина
+
+%% додаємо legacy абетку
+\makeatletter
+
+% \newcommand{\asbukLegacy}[1]{\expandafter\ukrainian@asbukDSTU\csname c@#1\endcsname}
+\def\asbukLegacy#1{\expandafter\ukrainian@asbukDSTU\csname c@#1\endcsname}
+\def\ukrainian@asbukDSTU#1{\ifcase#1\or
+   а\or б\or в\or г\or д\or е\or ж\or
+   и\or к\or л\or м\or н\or п\or р\or
+   с\or т\or у\or ф\or х\or ц\or ш\or
+   щ\or ю\or я\else\xpg@ill@value{#1}{ukrainian@asbukDSTU}\fi}
+% \AddEnumerateCounter{\asbukLegacy}{\ukrainian@asbukDSTU}{щ}
+
+\def\AsbukLegacy#1{\expandafter\ukrainian@AsbukDSTU\csname c@#1\endcsname}
+\def\ukrainian@AsbukDSTU#1{\ifcase#1\or
+   А\or Б\or В\or Г\or Д\or Е\or Ж\or
+   И\or К\or Л\or М\or Н\or П\or Р\or
+   С\or Т\or У\or Ф\or Х\or Ц\or Ш\or
+   Щ\or Ю\or Я\else\xpg@ill@value{#1}{ukrainian@AsbukDSTU}\fi}
+% \AddEnumerateCounter{\AsbukLegacy}{\ukrainian@asbukDSTU}{Щ}
+\makeatother
+
 \frenchspacing
 \doublespacing % інтервал "1,5" між рядками
-
-\renewcommand{\rmdefault}{ftm} % задаємо шрифт за промовчанням --- "Times New Roman" із пакету pscyr
 
 \newcommand{\setfontsize}[1]{\fontsize{#1pt}{#1pt}\selectfont} % команда для задавання розміру шрифта
 \newcommand{\invcommas}[1]{\guillemotleft #1\guillemotright} % команда для французьких кутових лапок
@@ -82,7 +136,6 @@
 		\renewcommand{\headrulewidth}{0pt}
 		\renewcommand{\footrulewidth}{0pt}
 }
-
 % команди для заборони розриву формул у небажаному місці
 \binoppenalty=10000
 \relpenalty=10000
@@ -93,11 +146,15 @@
 \hyphenpenalty=10000
 \hbadness=10000
 
+
 % команда для створення ненумерованого розділу, який тим не менше показується в змісті
 \newcommand{\uchapter}[1]{\chapter*{#1}\addcontentsline{toc}{chapter}{#1}} 
 
 % для створення вступу використаємо команду \uchapter
 \newcommand{\intro}{\uchapter{Вступ}}
+
+% для створення мути роботи використаємо команду \uchapter
+\newcommand{\goal}{\uchapter{Мета роботи}}
 
 % для створення висновків використаємо команду \uchapter
 \newcommand{\conclusions}{\uchapter{Висновки}}
@@ -105,6 +162,8 @@
 % для створення переліку умовних позначень використаємо команду \shortings
 \newcommand{\shortings}{\uchapter{Перелік умовних позначень, скорочень і термінів}}
 
+% хитра команда для створення додатків ??
+% додамо невеличкі зміни
 % хитра команда для створення додатків
 \newcounter{appendnum}
 \newcommand{\append}[1]{
@@ -114,29 +173,20 @@
 \setcounter{section}{0}
 \setcounter{subsection}{0}
 \titleformat{\chapter}{\centering\normalsize}{\hspace{1cm}\thechapter}{0.5em}{}
-\chapter*{Додаток \Asbuk{appendnum}\\#1}
-\addcontentsline{toc}{chapter}{Додаток \Asbuk{appendnum}\ #1}
+\chapter*{Додаток \AsbukLegacy{appendnum}\\#1}
+\addcontentsline{toc}{chapter}{Додаток \AsbukLegacy{appendnum}\ #1}
 \addvspace{-28pt}
 \preto\section{%
 	\ifnum\value{section}=0\addvspace{0pt}\fi%
 }
-\renewcommand{\thefigure}{\Asbuk{appendnum}.\arabic{figure}}
-\renewcommand{\thetable}{\Asbuk{appendnum}.\arabic{table}}
-\renewcommand{\thesection}{\Asbuk{appendnum}.\arabic{section}}
-\renewcommand{\thesubsection}{\Asbuk{appendnum}.\arabic{section}.\arabic{subsection}}
+\renewcommand{\thefigure}{\AsbukLegacy{appendnum}.\arabic{figure}}
+\renewcommand{\thetable}{\AsbukLegacy{appendnum}.\arabic{table}}
+\renewcommand{\thesection}{\AsbukLegacy{appendnum}.\arabic{section}}
+\renewcommand{\thesubsection}{\AsbukLegacy{appendnum}.\arabic{section}.\arabic{subsection}}
 }
 % прибираємо недопустимі букви з позначення додатків
 \pretocmd\append{
 	\stepcounter{appendnum}
-	\ifnum\Asbuk{appendnum}=Ґ \stepcounter{appendnum}\fi
-	\ifnum\Asbuk{appendnum}=Є \stepcounter{appendnum}\fi
-	\ifnum\Asbuk{appendnum}=З \stepcounter{appendnum}\fi
-	\ifnum\Asbuk{appendnum}=І \stepcounter{appendnum}\fi
-	\ifnum\Asbuk{appendnum}=Ї \stepcounter{appendnum}\fi
-	\ifnum\Asbuk{appendnum}=Й \stepcounter{appendnum}\fi
-	\ifnum\Asbuk{appendnum}=О \stepcounter{appendnum}\fi
-	\ifnum\Asbuk{appendnum}=Ч \stepcounter{appendnum}\fi
-	\ifnum\Asbuk{appendnum}=Ь \stepcounter{appendnum}\fi
 }{}{}
 
 % будемо змінювати стилі заголовків
@@ -187,7 +237,7 @@
 \preto\subsection{%
 	\ifnum\value{subsection}=0\addvspace{-48pt}\fi%
 }
-			
+
 % видозмінюємо зміст
 \makeatletter
 \renewcommand{\tableofcontents}{
@@ -208,12 +258,17 @@
 \renewcommand{\theequation}{\arabic{chapter}.\arabic{equation}}
 
 % задамо оновлені списки, з правильними відступами
-% нумерований першого рівня
-\AddEnumerateCounter{\asbuk}{\@asbuk}{\cyrm}
+%% трохи змінимо
+\makeatletter
+\AddEnumerateCounter{\asbukLegacy}{\ukrainian@asbukDSTU}{м)}
+\makeatother
+% ненумерований першого рівня
 \setlist[itemize,1]{label=-, partopsep=0pt, parsep=0pt, topsep=0pt, itemsep=0pt, itemindent=1.7cm, leftmargin=0pt}
 \setlist[itemize,2]{label=-, partopsep=0pt, parsep=0pt, topsep=0pt, itemsep=0pt, itemindent=2.25cm, leftmargin=0pt}
-\setlist[enumerate,1]{label=\asbuk*), partopsep=0pt, parsep=0pt, topsep=0pt, itemsep=0pt, itemindent=1.9cm, leftmargin=0pt}
+% нумерований першого рівня
+\setlist[enumerate,1]{label=\asbukLegacy*), partopsep=0pt, parsep=0pt, topsep=0pt, itemsep=0pt, itemindent=1.9cm, leftmargin=0pt}
 \setlist[enumerate,2]{label=\arabic*), partopsep=0pt, parsep=0pt, topsep=0pt, itemsep=0pt, itemindent=2.6cm, leftmargin=0pt}
+
 
 % тепер займемося змістом
 % задаємо відстань між точками
@@ -251,6 +306,7 @@
 \renewcommand{\cftsubsecfont}{\mdseries} % стиль заголовку (звичайний)
 \renewcommand{\cftsubsecleader}{\cftdotfill{\cftsubsecdotsep}} % чим заповнювати проміжок від заголовку до номеру сторінки (точками)
 
+
 % заголовки таблиць, рисунків і лістингів
 \DeclareCaptionLabelFormat{tablecap}{Таблиця #2} % формат за промовчанням "Табл." не влаштовує
 \DeclareCaptionLabelFormat{figurecap}{Рисунок #2} % формат за промовчанням "Рис." не влаштовує
@@ -264,7 +320,7 @@
 \setlength{\intextsep}{21pt}
 
 % команда, що змінює латинські літери на кирилічні в підрисунках
-\renewcommand{\thesubfigure}{\asbuk{subfigure}}
+\renewcommand{\thesubfigure}{\asbukLegacy{subfigure}}
 
 % нове оточення для довгих таблиць
 \renewenvironment{table}[4]{
@@ -318,8 +374,29 @@
 	\tempbibend
 }
 
+% додаткові команди для вставки лістингів
+% стиль при \lstlisting
+\lstset{style=FiraCodeStyle, basicstyle=\tiny\ttfamily, breaklines=true}
+% стиль при \verbatim
+\makeatletter
+\renewcommand{\verbatim@font}{\ttfamily\tiny}
+\makeatother
 % спеціальна команда для вставки лістингів
-\newcommand{\listing}[2]{\singlespacing\lstinputlisting[language=C++, basicstyle=\tiny, breaklines=true, caption={#1}]{#2}\doublespacing}
+%% додати потім лігатури
+\newcommand{\listing}[2]{\singlespacing\lstinputlisting[
+    language=Python,
+    style=FiraCodeStyle,
+    basicstyle=\tiny\ttfamily,
+    breaklines=true,
+    caption={#1}
+]{#2}\doublespacing}
+% Ця команда без підсвідки проте з підтримкою Unicode
+\newcommand{\listingverbatim}[2]{
+Лістинг файлу #1
+\singlespacing\verbatiminput{#2}\doublespacing
+}
+
+
 
 % нові команди для анотацій
 % двома мовами
@@ -403,7 +480,9 @@
 }
 \makeatother
 
-% виправляємо помилки з апострофами в формулах
+
+% виправляємо помилки з апострофами в формулах 
+%% ??
 \makeatletter
 \def\latex@@rquote{^\bgroup\prim@s} 
 \let\hang@@h@ngrquote\h@ngrquote
