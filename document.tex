@@ -1,0 +1,224 @@
+% ******** Приклад оформлення документа за ДСТУ 3008-95 ********
+% ******************** автор: Тавров Д. Ю. *********************
+
+% зазначаємо стильовий файл, який будемо використовувати
+\documentclass{dstu}
+
+% починаємо верстку документа
+\begin{document}
+
+% створимо титульний аркуш
+% за допомогою спеціальної команди
+% \maketitlepage{params},
+% де params --- це розділені комами пари "параметр={значення}"
+\maketitlepage{
+% StudentName --- прізвище, ініціали студента
+	StudentName={Іваненко І. І.},
+% StudentMale --- стать студента (true, якщо чоловік, false --- якщо жінка)
+	StudentMale=true,
+% StudentGroup --- група студента
+	StudentGroup={КМ-00},
+% Title --- назва
+	Title={Звіт\\із лабораторної роботи №X\\із дисципліни \invcommas{Навчальна дисципліна}\\на тему\\Тема лабораторної роботи},
+% SupervisorDegree --- науковий ступінь, учене звання керівника роботи
+% якщо наукового ступеня немає, можна відповідний рядочок пропустити
+	SupervisorDegree={канд. техн. наук, доцент},
+% SupervisorName --- прізвище, ініціали керівника роботи
+	SupervisorName={Петренко П. П.}
+}
+
+% створюємо анотацію
+\abstractUkr
+% далі пишемо текст анотації
+Текст анотації.
+
+% створюємо анотацію англійською мовою
+\abstractEng
+% далі пишемо текст анотації англійською мовою
+Abstract text.
+
+% створюємо зміст
+\tableofcontents
+
+% створюємо перелік умовних позначень, скорочень і термінів
+\shortings
+ПМА --- прикладна математика.
+
+% створюємо вступ
+\intro
+Цей шаблон потрібно використовувати під час підготовки документації на кафедрі прикладної математики (ПМА). 
+
+Текст вступу.
+
+Текст вступу.
+
+% створюємо перший розділ роботи
+\chapter{Назва першого розділу}
+\label{chap:first}
+
+Текст першого розділу:
+% створюємо нумерований список
+\begin{enumerate}
+	\item перший елемент нумерованого списку;
+	\item другий елемент нумерованого списку;
+	\item тощо.
+\end{enumerate}
+
+Текст першого розділу:
+% створюємо ненумерований список
+\begin{itemize}
+	\item перший елемент ненумерованого списку;
+	\item другий елемент ненумерованого списку;
+	\item тощо.
+\end{itemize}
+
+Текст першого розділу:
+% створюємо нумерований список з двома рівнями вкладення
+\begin{enumerate}
+	\item перший елемент нумерованого списку;
+	\item другий елемент нумерованого списку;
+	\begin{enumerate}
+		\item перший елемент другого рівня вкладення;
+		\item другий елемент другого рівня вкладення;
+	\end{enumerate}
+	\item тощо.
+\end{enumerate}
+
+% створюємо другий розділ
+\chapter{Назва другого розділу}
+\label{chap:second}
+
+% створюємо підрозділ
+\section{Назва першого підрозділу другого розділу}
+\label{sec:secondfirst}
+
+Текст підрозділу.
+
+% створюємо формулу
+Формула:
+\begin{equation}
+x = y + z\;,
+\label{eq:equation1}
+\end{equation}
+де $x$ --- це [...];
+
+$y$ --- це [...];
+
+$z$ --- це [...].
+
+\section{Назва другого підрозділу другого розділу}
+\label{sec:secondsecond}
+
+% створюємо пункт
+\subsection{Назва першого пункта другого підрозділу другого розділу}
+\label{subsec:secondsecondfirst}
+
+Текст пункта.
+
+% приклади посилань на:
+% розділ
+Як було зазначено в розділі \ref{chap:first}, [...].
+
+% підрозділ/пункт
+Як наведено в \ref{sec:secondfirst}, [...].
+
+% формулу
+У (\ref{eq:equation1}) наведено [...].
+
+% літературне джерело
+Як зазначено в \cite{SSA}, [...].
+
+% рисунок
+[...] представлено на рисунку \ref{fig:figure1}.
+	
+% створюємо рисунок
+\begin{figure}[!htp]
+	\centering
+	\includegraphics[scale=0.5]{PNG/figure1.png}
+	\caption{Назва рисунка}
+	\label{fig:figure1}
+\end{figure}
+
+% приклад посилання на таблицю
+[...] представлено в таблиці \ref{table:table1}.
+	
+% таблиця
+\begin{table}{|c|l|l|}{Назва таблиці}{table:table1}
+	{\hline
+	{\centering Назва першого стовпця} & {\centering Назва другого стовпця} & {\centering Назва третього стовпця} \\
+	\hline}
+	1 & Текст & Текст\\
+	\hline
+	1 & Текст & Текст\\
+	\hline 
+	1 & Текст & Текст\\
+	\hline 
+	1 & Текст & Текст\\
+	\hline 
+	1 & Текст & Текст\\
+	\hline 
+	1 & Текст & Текст\\
+	\hline 
+	1 & Текст & Текст\\
+	\hline 
+	1 & Текст & Текст\\
+	\hline 
+	1 & Текст & Текст\\
+	\hline 
+	1 & Текст & Текст\\
+	\hline 
+	1 & Текст & Текст\\
+	\hline 
+	1 & Текст & Текст\\
+	\hline 
+	1 & Текст & Текст\\
+	\hline 
+	1 & Текст & Текст\\
+	\hline 
+	1 & Текст & Текст\\
+	\hline 
+	1 & Текст & Текст\\
+	\hline 
+	1 & Текст & Текст\\
+\end{table}
+
+Текст розділу.
+
+% створюємо Висновки
+\conclusions
+
+Цей шаблон потрібно використовувати під час підготовки документації на кафедрі ПМА. У ньому враховано вимоги кафедри ПМА, які уточнюють положення ДСТУ 3008-95 \invcommas{Документація. Звіти у сфері науки і техніки. Структура і правила оформлення}.
+
+Текст висновків.
+
+Текст висновків.
+	
+% створюємо перелік посилань
+\begin{thebibliography}
+	\bibitem{Mallat} Mallat S. A Wavelet Tour of Signal Processing / S. Mallat. --- New York: Academic Press, 1999. --- 620 p.
+	
+	\bibitem{Davydov} Давыдов А. А. Вейвлет-анализ социальных процессов / А. А. Давыдов // Социологические исследования. --- 2003. --- №11. --- С. 89--101.
+	
+	\bibitem{Zadeh} Zadeh L. A. The Concept of a Linguistic Variable and its Application to Approximate Reasoning / L. A. Zadeh // Information Sciences. --- 1975. --- 8. --- P. 199--249.
+	
+	\bibitem{Olivetti} Olivetti E. Induction in neuroscience with classification: issues and solutions / E.~Olivetti, S. Greiner, P. Avesani // Machine Learning and Interpretation in Neuroimaging [ed.~G. Langs, I. Rish, M. Gross-Wentrup, B. Murphy]. --- Berlin, Heidelberg : Springer-Verlag, 2012. --- P. 42--50. --- (Lecture Notes in Computer Science, vol. 7263.)
+	
+	\bibitem{Dawkins} Dawkins R. The Selfish Gene / Richard Dawkins. --- [3rd ed.]. --- Oxford, New York : Oxford University Press, 2006. --- 360 p.
+	
+	\bibitem{SSA} Голяндина Н. Э. Метод \invcommas{Гусеница}-SSA: анализ временных рядов : [учеб. пособие] / Н. Э. Голяндина. --- СПб., 2004. --- 76 с.
+	
+	\bibitem{standard} Information Technology --- Security Techniques --- Evaluation Criteria for IT Security --- Part 2: Security Functional Components : ISO/IEC 15408-2:2008. --- [Чинний від 2008-08-15]. --- 2008. --- 218 p.
+	
+	\bibitem{url} Base Structure Report (A Summary of DoD's Real Property Inventory) Fiscal Year 2001 Baseline [Electronic resource] / Office of the Deputy under Secretary of Defense.~--- 2000. --- Mode of access: 
+\url{http://archive.defense.gov/news/Aug2001/basestructure2001.pdf}
+\end{thebibliography}
+
+% створюємо додаток
+\append{Назва додатку}
+
+% кожний лістинг вставляється в додаток за допомогою спеціальної команди,
+% перший аргумент якої --- це заголовок, який з'являтиметься в тексті,
+% другий --- шлях до файлу з лістингом
+\listing{code.cpp}{SRC/code.cpp}
+
+\end{document}
